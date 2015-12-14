@@ -1,0 +1,28 @@
+<body>
+	<style>
+		.done {
+			text-decoration: line-through;
+			color: #ccc;
+		}
+	</style>
+
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h4>Voice Commands:</h4>
+				Check 1,2,...
+				<br>
+				Remove 1,2,...
+				<br>
+				Load preflight checklist
+				<br>
+				Clear Completed
+			</div>
+			<ul class="panel-body">
+				<h4>*** Flight Checklist: *** </h4>
+				<!--List of checklist items displayed in view -->
+				<li class = "list-group-item" data-ng-repeat="todo in todos track by $index">
+					<input type="checkbox" data-ng-model="todo.done" />
+					{{$index+1}} <span data-ng-class="{'done':todo.done}">{{todo.title}}</span>
+				</li>
+			</ul>

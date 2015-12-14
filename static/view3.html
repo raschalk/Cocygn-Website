@@ -1,0 +1,31 @@
+<body>
+		<!-- Add checklist item manually by typing -->
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h4> Manual Commands:</h4>
+				<form name="frm" data-ng-submit="addTodo()">
+					<input type="text" name="newtodo" data-ng-model="newTodo" required />
+					<button type="button" class="btn btn-primary"data-ng-disabled="frm.$invalid">
+						Add Item
+					</button>
+					<button type="button" class="btn btn-primary"data-ng-click="loadChecklist()">
+						LoadChecklist
+					</button>
+					<!-- bind Clear Completed button to function which clears completed items from checklist -->
+					<button type="button" class="btn btn-primary" data-ng-click="clearCompleted()">
+						Clear Completed
+					</button>
+				</form>
+
+			<ul class="panel-body">
+				<h4>*** Flight Checklist: *** </h4>
+				<!--List of checklist items displayed in view -->
+				<li class = "list-group-item" data-ng-repeat="todo in todos track by $index">
+					<input type="checkbox" data-ng-model="todo.done" />
+					{{$index+1}} <span data-ng-class="{'done':todo.done}">{{todo.title}}</span>
+				</li>
+			</ul>
+
+			</div>
+		</div>
+
